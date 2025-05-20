@@ -2061,6 +2061,7 @@ export namespace Prisma {
     name: string | null
     yearsPlaying: number | null
     discord: string | null
+    weekDays: string | null
     hourStart: number | null
     hourEnd: number | null
     useVoiceChannel: boolean | null
@@ -2073,6 +2074,7 @@ export namespace Prisma {
     name: string | null
     yearsPlaying: number | null
     discord: string | null
+    weekDays: string | null
     hourStart: number | null
     hourEnd: number | null
     useVoiceChannel: boolean | null
@@ -2112,6 +2114,7 @@ export namespace Prisma {
     name?: true
     yearsPlaying?: true
     discord?: true
+    weekDays?: true
     hourStart?: true
     hourEnd?: true
     useVoiceChannel?: true
@@ -2124,6 +2127,7 @@ export namespace Prisma {
     name?: true
     yearsPlaying?: true
     discord?: true
+    weekDays?: true
     hourStart?: true
     hourEnd?: true
     useVoiceChannel?: true
@@ -2236,7 +2240,7 @@ export namespace Prisma {
     name: string
     yearsPlaying: number
     discord: string
-    weekDays: JsonValue
+    weekDays: string
     hourStart: number
     hourEnd: number
     useVoiceChannel: boolean
@@ -2339,7 +2343,7 @@ export namespace Prisma {
       name: string
       yearsPlaying: number
       discord: string
-      weekDays: Prisma.JsonValue
+      weekDays: string
       hourStart: number
       hourEnd: number
       useVoiceChannel: boolean
@@ -2773,7 +2777,7 @@ export namespace Prisma {
     readonly name: FieldRef<"Ad", 'String'>
     readonly yearsPlaying: FieldRef<"Ad", 'Int'>
     readonly discord: FieldRef<"Ad", 'String'>
-    readonly weekDays: FieldRef<"Ad", 'Json'>
+    readonly weekDays: FieldRef<"Ad", 'String'>
     readonly hourStart: FieldRef<"Ad", 'Int'>
     readonly hourEnd: FieldRef<"Ad", 'Int'>
     readonly useVoiceChannel: FieldRef<"Ad", 'Boolean'>
@@ -3235,30 +3239,6 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-  export const JsonNullValueInput: {
-    JsonNull: typeof JsonNull
-  };
-
-  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
-
-
-  export const JsonNullValueFilter: {
-    DbNull: typeof DbNull,
-    JsonNull: typeof JsonNull,
-    AnyNull: typeof AnyNull
-  };
-
-  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
-
-
-  export const QueryMode: {
-    default: 'default',
-    insensitive: 'insensitive'
-  };
-
-  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
-
-
   /**
    * Field references
    */
@@ -3275,20 +3255,6 @@ export namespace Prisma {
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Json'
-   */
-  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
-    
-
-
-  /**
-   * Reference to a field of type 'QueryMode'
-   */
-  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -3369,7 +3335,7 @@ export namespace Prisma {
     name?: StringFilter<"Ad"> | string
     yearsPlaying?: IntFilter<"Ad"> | number
     discord?: StringFilter<"Ad"> | string
-    weekDays?: JsonFilter<"Ad">
+    weekDays?: StringFilter<"Ad"> | string
     hourStart?: IntFilter<"Ad"> | number
     hourEnd?: IntFilter<"Ad"> | number
     useVoiceChannel?: BoolFilter<"Ad"> | boolean
@@ -3400,7 +3366,7 @@ export namespace Prisma {
     name?: StringFilter<"Ad"> | string
     yearsPlaying?: IntFilter<"Ad"> | number
     discord?: StringFilter<"Ad"> | string
-    weekDays?: JsonFilter<"Ad">
+    weekDays?: StringFilter<"Ad"> | string
     hourStart?: IntFilter<"Ad"> | number
     hourEnd?: IntFilter<"Ad"> | number
     useVoiceChannel?: BoolFilter<"Ad"> | boolean
@@ -3435,7 +3401,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Ad"> | string
     yearsPlaying?: IntWithAggregatesFilter<"Ad"> | number
     discord?: StringWithAggregatesFilter<"Ad"> | string
-    weekDays?: JsonWithAggregatesFilter<"Ad">
+    weekDays?: StringWithAggregatesFilter<"Ad"> | string
     hourStart?: IntWithAggregatesFilter<"Ad"> | number
     hourEnd?: IntWithAggregatesFilter<"Ad"> | number
     useVoiceChannel?: BoolWithAggregatesFilter<"Ad"> | boolean
@@ -3490,11 +3456,11 @@ export namespace Prisma {
   }
 
   export type AdCreateInput = {
-    id: string
+    id?: string
     name: string
     yearsPlaying: number
     discord: string
-    weekDays: JsonNullValueInput | InputJsonValue
+    weekDays: string
     hourStart: number
     hourEnd: number
     useVoiceChannel: boolean
@@ -3503,11 +3469,11 @@ export namespace Prisma {
   }
 
   export type AdUncheckedCreateInput = {
-    id: string
+    id?: string
     name: string
     yearsPlaying: number
     discord: string
-    weekDays: JsonNullValueInput | InputJsonValue
+    weekDays: string
     hourStart: number
     hourEnd: number
     useVoiceChannel: boolean
@@ -3520,7 +3486,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     yearsPlaying?: IntFieldUpdateOperationsInput | number
     discord?: StringFieldUpdateOperationsInput | string
-    weekDays?: JsonNullValueInput | InputJsonValue
+    weekDays?: StringFieldUpdateOperationsInput | string
     hourStart?: IntFieldUpdateOperationsInput | number
     hourEnd?: IntFieldUpdateOperationsInput | number
     useVoiceChannel?: BoolFieldUpdateOperationsInput | boolean
@@ -3533,7 +3499,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     yearsPlaying?: IntFieldUpdateOperationsInput | number
     discord?: StringFieldUpdateOperationsInput | string
-    weekDays?: JsonNullValueInput | InputJsonValue
+    weekDays?: StringFieldUpdateOperationsInput | string
     hourStart?: IntFieldUpdateOperationsInput | number
     hourEnd?: IntFieldUpdateOperationsInput | number
     useVoiceChannel?: BoolFieldUpdateOperationsInput | boolean
@@ -3542,11 +3508,11 @@ export namespace Prisma {
   }
 
   export type AdCreateManyInput = {
-    id: string
+    id?: string
     name: string
     yearsPlaying: number
     discord: string
-    weekDays: JsonNullValueInput | InputJsonValue
+    weekDays: string
     hourStart: number
     hourEnd: number
     useVoiceChannel: boolean
@@ -3559,7 +3525,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     yearsPlaying?: IntFieldUpdateOperationsInput | number
     discord?: StringFieldUpdateOperationsInput | string
-    weekDays?: JsonNullValueInput | InputJsonValue
+    weekDays?: StringFieldUpdateOperationsInput | string
     hourStart?: IntFieldUpdateOperationsInput | number
     hourEnd?: IntFieldUpdateOperationsInput | number
     useVoiceChannel?: BoolFieldUpdateOperationsInput | boolean
@@ -3571,7 +3537,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     yearsPlaying?: IntFieldUpdateOperationsInput | number
     discord?: StringFieldUpdateOperationsInput | string
-    weekDays?: JsonNullValueInput | InputJsonValue
+    weekDays?: StringFieldUpdateOperationsInput | string
     hourStart?: IntFieldUpdateOperationsInput | number
     hourEnd?: IntFieldUpdateOperationsInput | number
     useVoiceChannel?: BoolFieldUpdateOperationsInput | boolean
@@ -3648,24 +3614,6 @@ export namespace Prisma {
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
   }
-  export type JsonFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
 
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
@@ -3712,6 +3660,7 @@ export namespace Prisma {
     name?: SortOrder
     yearsPlaying?: SortOrder
     discord?: SortOrder
+    weekDays?: SortOrder
     hourStart?: SortOrder
     hourEnd?: SortOrder
     useVoiceChannel?: SortOrder
@@ -3724,6 +3673,7 @@ export namespace Prisma {
     name?: SortOrder
     yearsPlaying?: SortOrder
     discord?: SortOrder
+    weekDays?: SortOrder
     hourStart?: SortOrder
     hourEnd?: SortOrder
     useVoiceChannel?: SortOrder
@@ -3751,27 +3701,6 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
-  }
-  export type JsonWithAggregatesFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
-        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
-
-  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedJsonFilter<$PrismaModel>
-    _max?: NestedJsonFilter<$PrismaModel>
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -3956,24 +3885,6 @@ export namespace Prisma {
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
   }
-  export type NestedJsonFilter<$PrismaModel = never> =
-    | PatchUndefined<
-        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
-        Required<NestedJsonFilterBase<$PrismaModel>>
-      >
-    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
-
-  export type NestedJsonFilterBase<$PrismaModel = never> = {
-    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-    path?: string
-    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
-    string_contains?: string | StringFieldRefInput<$PrismaModel>
-    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
-    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
-    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
-    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
-  }
 
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
@@ -3998,11 +3909,11 @@ export namespace Prisma {
   }
 
   export type AdCreateWithoutGameInput = {
-    id: string
+    id?: string
     name: string
     yearsPlaying: number
     discord: string
-    weekDays: JsonNullValueInput | InputJsonValue
+    weekDays: string
     hourStart: number
     hourEnd: number
     useVoiceChannel: boolean
@@ -4010,11 +3921,11 @@ export namespace Prisma {
   }
 
   export type AdUncheckedCreateWithoutGameInput = {
-    id: string
+    id?: string
     name: string
     yearsPlaying: number
     discord: string
-    weekDays: JsonNullValueInput | InputJsonValue
+    weekDays: string
     hourStart: number
     hourEnd: number
     useVoiceChannel: boolean
@@ -4054,7 +3965,7 @@ export namespace Prisma {
     name?: StringFilter<"Ad"> | string
     yearsPlaying?: IntFilter<"Ad"> | number
     discord?: StringFilter<"Ad"> | string
-    weekDays?: JsonFilter<"Ad">
+    weekDays?: StringFilter<"Ad"> | string
     hourStart?: IntFilter<"Ad"> | number
     hourEnd?: IntFilter<"Ad"> | number
     useVoiceChannel?: BoolFilter<"Ad"> | boolean
@@ -4103,11 +4014,11 @@ export namespace Prisma {
   }
 
   export type AdCreateManyGameInput = {
-    id: string
+    id?: string
     name: string
     yearsPlaying: number
     discord: string
-    weekDays: JsonNullValueInput | InputJsonValue
+    weekDays: string
     hourStart: number
     hourEnd: number
     useVoiceChannel: boolean
@@ -4119,7 +4030,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     yearsPlaying?: IntFieldUpdateOperationsInput | number
     discord?: StringFieldUpdateOperationsInput | string
-    weekDays?: JsonNullValueInput | InputJsonValue
+    weekDays?: StringFieldUpdateOperationsInput | string
     hourStart?: IntFieldUpdateOperationsInput | number
     hourEnd?: IntFieldUpdateOperationsInput | number
     useVoiceChannel?: BoolFieldUpdateOperationsInput | boolean
@@ -4131,7 +4042,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     yearsPlaying?: IntFieldUpdateOperationsInput | number
     discord?: StringFieldUpdateOperationsInput | string
-    weekDays?: JsonNullValueInput | InputJsonValue
+    weekDays?: StringFieldUpdateOperationsInput | string
     hourStart?: IntFieldUpdateOperationsInput | number
     hourEnd?: IntFieldUpdateOperationsInput | number
     useVoiceChannel?: BoolFieldUpdateOperationsInput | boolean
@@ -4143,7 +4054,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     yearsPlaying?: IntFieldUpdateOperationsInput | number
     discord?: StringFieldUpdateOperationsInput | string
-    weekDays?: JsonNullValueInput | InputJsonValue
+    weekDays?: StringFieldUpdateOperationsInput | string
     hourStart?: IntFieldUpdateOperationsInput | number
     hourEnd?: IntFieldUpdateOperationsInput | number
     useVoiceChannel?: BoolFieldUpdateOperationsInput | boolean

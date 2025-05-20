@@ -16,11 +16,11 @@ model Game {
 }
 
 model Ad {
-  id              String   @id
+  id              String   @id @default(uuid())
   name            String
   yearsPlaying    Int
   discord         String
-  weekDays        Json
+  weekDays        String
   hourStart       Int
   hourEnd         Int
   useVoiceChannel Boolean
