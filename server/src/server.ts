@@ -5,12 +5,20 @@ const app = express()
 const prisma = new PrismaClient()
 
 app.get("/games", async (req, res) => {
-    const games = prisma.game.findMany();
+    const games = await prisma.game.findMany({
+        include: {
+            _count: {
+                select: {
+                    ads: true
+                }
+            }
+        }
+    });
 
     res.json(games);
 });
 
-app.post("(ads", (req, res) => {
+app.post("/ads", (req, res) => {
     res.status(201).json([]);
 })
 
@@ -24,6 +32,13 @@ app.get("/games/:id/ads", (req, res) => {
         {id: 4, name: 'Anúncio 4'},
     ])
 })
+
+app.all('/*splat', (request, response) => {
+    response.status(404).json({
+        message: "The URL does not exist"
+    })
+})
+
 
 app.listen(3333, ()=> {
     console.log("Servidor rodando na porta 3333")
