@@ -38,7 +38,7 @@ app.post("/games/:id/ads", async (req, res) => {
         name,
         yearsPlaying,
         discord,
-        weekDays: weekDays.join(','),
+        weekDays: weekDays,
         hourStart: convertHourToMinute(hourStart),
         hourEnd: convertHourToMinute(hourEnd),
         useVoiceChannel
@@ -47,7 +47,7 @@ app.post("/games/:id/ads", async (req, res) => {
     const ad = await prisma.ad.create({data})
 
     res.status(201).json({
-        data: data
+        data: ad
     });
 })
 
