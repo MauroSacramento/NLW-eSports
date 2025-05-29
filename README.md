@@ -33,7 +33,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-projeto inovador na área de eSports, focado na criação de uma plataforma digital voltada para a organização de torneios, gestão de equipes e interação entre jogadores.
+Projeto inovador na área de eSports, focado na criação de uma plataforma digital voltada para a organização de torneios, gestão de equipes e interação entre jogadores.
 
 - [Acesse o projeto finalizado, online](https://maykbrito.github.io/devlinks)
 
