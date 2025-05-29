@@ -18,7 +18,7 @@ Programa exclusivo e gratuito, promovido pela Rocketseat para ensino de tecnolog
 <br>
 
 <p align="center">
-  <img alt="eSports" src="" width="100%">
+  <img alt="eSports" src="duo.png" width="90%">
 </p>
 
 ## 🚀 Tecnologias
